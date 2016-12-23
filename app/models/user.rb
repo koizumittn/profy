@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   # accesor
-  attr_accesor 'group_key'
+  attr_accessor 'group_key'
 end
