@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, authentication_keys: [:email, :group_key]
+  :recoverable, :rememberable, :trackable, :validatable, :confirmable, authentication_keys: [:email, :group_key]
 
   # association
   belongs_to :group
@@ -24,11 +24,11 @@ class User < ActiveRecord::Base
       where(conditions).where(["group_id = :group_id AND email = :email",
         { group_id: group_id, email: email }]).first
     elsif conditions.has_key?(:confirmation_token)
-      where(conditions).first
-    else
-      false
-    end
+     where(conditions).first
+   else
+    false
   end
+end
 
   # フルネームを返却
   def name
