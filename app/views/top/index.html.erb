@@ -16,4 +16,7 @@
   <%= f.text_field :text, placeholder: "例：好きな食べ物は？", required: true %>
   <%= f.submit "質問する" %>
   <% end %>
+
+  <!-- グループの質問を一覧表示する -->
+  <%= render partial: "questions/question", collection: @questions %>
 </div>
