@@ -11,13 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225053709) do
+ActiveRecord::Schema.define(version: 20161227021549) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "text",        limit: 65535
+    t.integer  "question_id", limit: 4
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string   "key",        limit: 255
     t.text     "detail",     limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.integer  "group_id",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,7 +56,7 @@ ActiveRecord::Schema.define(version: 20161225053709) do
     t.integer  "group_id",               limit: 4
     t.string   "family_name",            limit: 255
     t.string   "first_name",             limit: 255
-    t.string   "family_name_kana",       limit: 255
+    t.string   "family_name_kana",       limit: 255, default: "", null: false
     t.string   "first_name_kana",        limit: 255
     t.string   "avatar_file_name",       limit: 255
     t.string   "avatar_content_type",    limit: 255
