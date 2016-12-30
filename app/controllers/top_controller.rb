@@ -2,7 +2,8 @@ class TopController < ApplicationController
 
   def index
     @question = Question.new
-    @questions = current_user.group.questions
+    feed_contents = current_user.gourp.feed_contents.includes(:content)
+    @questions = feed_contents.map(&:content)
   end
 
 end
