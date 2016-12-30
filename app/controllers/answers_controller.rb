@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    Answer.create(create_params)
+    @answer = Answer.create(create_params)
   end
 
   def edit
