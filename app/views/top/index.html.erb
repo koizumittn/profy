@@ -18,5 +18,9 @@
   <% end %>
 
   <!-- グループの質問を一覧表示する -->
-  <%= render partial: @feed_contents %>
+  <%= render partial: @feed_contents_resource %>
+
+  <!-- ページネーションのリンクを表示する -->
+  <%= paginate(@feed_contents) %>
+
 </div>
